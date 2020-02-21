@@ -5,6 +5,8 @@ import (
 
 	"github.com/labstack/echo"
 	"github.com/labstack/echo/middleware"
+
+	"github.com/sshanzel/update-right/domain/entities"
 )
 
 func main() {
@@ -19,5 +21,7 @@ func main() {
 }
 
 func hello(c echo.Context) error {
-	return c.String(http.StatusOK, "Hello World")
+	var p = entities.Publisher{Title: "Test"}
+
+	return c.String(http.StatusOK, p.Title)
 }
